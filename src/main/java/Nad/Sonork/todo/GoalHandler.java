@@ -64,6 +64,7 @@ public class GoalHandler implements HttpHandler {
             os.write(response.getBytes());
         }
     }
+
     private void sendError(HttpExchange exchange, int statusCode, String message) throws IOException {
         String jsonResponse = gson.toJson(new ErrorResponse(message));
         exchange.sendResponseHeaders(statusCode, jsonResponse.getBytes(StandardCharsets.UTF_8).length);
